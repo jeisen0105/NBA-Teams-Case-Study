@@ -98,4 +98,5 @@ write.csv(x = NBA_eval, file = "NBA_eval.csv")
 
 For the analaysis stage I exported my data from R studio and imported it into Tablaeu.
 
+![Chart](Sheet1.png)
 
