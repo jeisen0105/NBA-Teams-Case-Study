@@ -88,8 +88,10 @@ write.csv(x = pop_income_bars, file = "pop_income_bars.csv")
 pop_income_bars <- read.csv("Popincomebars.csv")
 
 #Combine Datasets
-NBA_eval <- left_join(Popincomebars, Gdp_MPA, by = "MSA")
+NBA_eval <- left_join(pop_income_bars, Gdp_MPA, by = "MSA")
 
 #Export combined data for further cleaning and analysis
 write.csv(x = NBA_eval, file = "NBA_eval.csv")
 ```
+
+## 7. Analyze
