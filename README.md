@@ -100,3 +100,23 @@ For the analaysis stage I exported my data from R studio and imported it into Ta
 
 ![Chart](Sheet1.png)
 
+### Interesting Findings:
+- The top 5 Metropolitan areas with the hihgest gdp in order from highest to lowest are Seattle, San Jose, San Diego, Balimore and Austin.
+
+![Chart](Sheet2.png)
+
+### Interesting Findings:
+-The top 5 Metropolitan areas with the highest perosnal income from highest to lowest are San Jose, Bridgeport, Seattle, Austin, Nashville.
+
+![Chart](Sheet3.png)
+
+### Interesting Findings:
+-The top 5 Metropolitan areas with the highest population from highest to lowest are Riverside, Seattle, Tampa, San Diego, Baltimore
+
+![Chart](Sheet4.png)
+
+### Interesting Findings:
+-The top 5 Metropolitan areas with the highest location quotient of sports bars from highest to lowest are St. Louis, Cincinnati, Urban Honolulu, Rochester, Pittsburg. 
+
+
+
