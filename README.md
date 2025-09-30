@@ -126,6 +126,8 @@ For the analysis stage, I exported my data from RStudio and imported it into Tab
 
 Below is a link to my Google Slides presentation of the case study:
 
+[Case Study Presentation](https://docs.google.com/presentation/d/1QciFCHY_gfdBa2ID1F8N1-aNf3c98sAK9rZLd_ifQUw/edit?usp=sharing)
+
 ## 9. Act:
 
 ### Key Takeaways
