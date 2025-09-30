@@ -141,8 +141,3 @@ Below is a link to my Google Slides presentation of the case study:
 ### Reccomednations
 
   Seattle and St. Louis are the clear strategic choices for the next two NBA expansion markets. Seattle is the safer, high-return option because of its massive economic profile, featuring the highest GDP and highest personal income, ensuring a wealthy fanbase can support a premium franchise. Moreover, the city already has a proven, hungry fanbase and modern arena infrastructure ready to resurrect the SuperSonics immediately. St. Louis, while lacking a prior NBA team, offers huge growth potential, supported by a large population, respectable economic indicators, and crucially, one of the nation's highest concentrations of sports bars—a powerful metric that signals a deeply passionate, communal sports market ready for a new team and providing an excellent platform for league engagement and reaching new audiences.
-
-### Conclusion
-
-  
-
