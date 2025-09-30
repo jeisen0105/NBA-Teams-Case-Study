@@ -29,46 +29,49 @@ install.packages("stringr")
 library(stringr)
 install.packages("dplyr")
 library(dplyr)
+install.packages("tidyr")
+library(tidyr)
 
-# Install Packages for Population and Income
-household_income <- read.csv("HouseIncome.csv")
-metropolitan_population <- read.csv("MetroPop.csv")
+# Upload Datasets
+metro_income <- read.csv("MetroIncome - MetroIncome.csv")
+metro_population <- read.csv("MetroPop - MetroPop.csv")
+Sports_Bars <- read.csv("SportsBars.csv")
 
-# Cleaning and Formatting
-metropolitan_population$MSA <- str_replace_all(metropolitan_population$MSA, fixed("."), "")
-metropolitan_population$MSA <- str_remove(metropolitan_population$MSA, ",.*")
-household_income$MSA <- str_remove(household_income$MSA, ",.*")
+#Clean Datasets
+metro_population$MSA <- str_replace_all(metro_population$MSA, fixed("."), "")
+metro_population$MSA <- str_remove(metro_population$MSA, ",.*")
+metro_income$MSA <- str_remove(metro_income$MSA, ",.*")
 
-# Combine the Data
-combined_data <- left_join(
-  household_income,
-  metropolitan_population,
-  by = "MSA",
-  relationship = "many-to-many"
-)
+#Combine Datasets
+merged_data <- left_join(metro_population, metro_income, by = "MSA")
 
-# Export Combined data to make adjustments on spreadsheets
-write.csv(combined_data, file = "combined_data.csv", row.names = FALSE)
-getwd("combined_data.csv")
+#Clean Combined Dataset
+merged_data$Income.x <- NULL
 
-# Import freshly cleaned combined data from spreadsheets
-MSA_combined <- read.csv("MSAcombined.csv")
+#Export combined data for further cleaning 
+write.csv(x = merged_data, file = "merged_data.csv")
 
-# Rename Columns 
-MSA_combined <- MSA_combined %>%
-  rename("Per Captial Personal Income" = "Per.Capita.Personal.Income",
-         "2024 Population" = "X2024.Population")
+#Import new cleaned combined data
+pop_income <- read.csv("Popandincome.csv")
 
-# Install remaining packages
-ncaab_rankings <- read.csv("NCAAB.csv")
-sports_bars <- read.csv("SportsBars.csv")
-fortune_500 <- read.csv("Fortune500.csv")
+#Combine more Datasets 
+pop_income_bars <- left_join(pop_income, Sports_Bars, by = "MSA")
 
-# Rename Columns 
-sports_bars <- sports_bars %>% 
-  rename(`Location Quotient` = `Location.quotient`)
-ncaab_rankings <- ncaab_rankings %>% 
-  rename(`Titles` = `Titiles`)
-fortune_500 <- fortune_500 %>%
-  rename(`Fortune 500 Companies` = `Fortune.500.Companies`)
+#Export combined data for further cleaning 
+write.csv(x = pop_income_bars, file = "pop_income_bars.csv")
+
+#Import new cleaned combined data
+pop_income_bars <- read.csv("Popincomebars.csv")
+
+#Import next data set to be combined
+Gdp_MPA <- read.csv("GDP.csv")
+
+#Clean dataset
+Gdp_MPA$MSA <- str_remove(Gdp_MPA$MSA, ",.*")
+
+#Combine Datasets
+NBA_eval <- left_join(Popincomebars, Gdp_MPA, by = "MSA")
+
+#Export combined data for further cleaning 
+write.csv(x = NBA_eval, file = "NBA_eval.csv")
 ```
