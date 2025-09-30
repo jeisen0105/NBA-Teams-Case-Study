@@ -95,3 +95,7 @@ write.csv(x = NBA_eval, file = "NBA_eval.csv")
 ```
 
 ## 7. Analyze
+
+For the analaysis stage I exported my data from R studio and imported it into Tablaeu.
+
+
