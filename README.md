@@ -26,12 +26,21 @@ IN this hypopthetical study I am working as a Junior Analayst who somehow found 
 
 The business task is to research the relevatn infromation of each United States metropolitan area in order to find which two would make good additions to th elelague. By identifying key trends in usage, I will provide data-driven recommendations to the NBA Board of Governers on which metropolitan areas have the population, personal income, GDP and location quotient of bars avalaibell to host an NBA team. 
 
-To ensure the validity of my analysis, I will evaluate the provided dataset against the ROCCC framework to verify that the data is reliable, original, comprehensive, current, and cited.**
+To ensure the validity of my analysis, I will evaluate the provided dataset against the ROCCC framework to verify that the data is reliable, original, comprehensive, current, and cited.
 
 ## 5. Prepare
 
-### Data Source
+To ensure the validity of my analysis, I will evaluate the provided dataset against the ROCCC framework to verify that the data is reliable, original, comprehensive, current, and cited.
 
+-Data Set 1: Metropolitan Area Perosnal Income: This dataset strongly aligns with the ROCCC framework. It's sourced from the Bureau of Economic Analysis (BEA), a reputable government agency, making the data reliable and original. The 2023 publication date ensures the data is current, and the dataset's scope provides comprehensive coverage of personal income by metropolitan area. The source is properly cited.
+
+-Data Set 2: Metropolitan Area Population: This dataset, from the United States Census Bureau, also fully supports the ROCCC framework. As the primary source for US demographic data, the Census Bureau guarantees the data's reliability and originality. The information is comprehensive and, depending on the specific release date, current. The source is also properly cited.
+
+-Data Set 3: Metropolitan Area Sports Bars: Sourced from the U.S. Bureau of Labor Statistics (BLS), this dataset is also a strong fit for the ROCCC framework. The BLS is a reliable and original source for labor market data, ensuring the data's reliability and originality. The information is comprehensive and current, and the source is properly cited.
+
+-Data set 4: Metropolitan Area GDP: The GDP data from the Bureau of Economic Analysis (BEA) on county and metro areas fully follows the ROCCC framework because it is a Reliable and Original source (official government data), highly Comprehensive in scope, actively Current with scheduled annual updates, and thoroughly Credible with detailed public methodologies.
+
+### Data Source
 ```r
 # Install and load necessary packages
 install.packages("stringr")
@@ -45,11 +54,17 @@ library(tidyr)
 metro_income <- read.csv("MetroIncome - MetroIncome.csv")
 metro_population <- read.csv("MetroPop - MetroPop.csv")
 Sports_Bars <- read.csv("SportsBars.csv")
+Gdp_MPA <- read.csv("GDP.csv")
+```
 
+## 6. Process
+
+```r
 #Clean Datasets
 metro_population$MSA <- str_replace_all(metro_population$MSA, fixed("."), "")
 metro_population$MSA <- str_remove(metro_population$MSA, ",.*")
 metro_income$MSA <- str_remove(metro_income$MSA, ",.*")
+Gdp_MPA$MSA <- str_remove(Gdp_MPA$MSA, ",.*")
 
 #Combine Datasets
 merged_data <- left_join(metro_population, metro_income, by = "MSA")
@@ -72,15 +87,9 @@ write.csv(x = pop_income_bars, file = "pop_income_bars.csv")
 #Import new cleaned combined data
 pop_income_bars <- read.csv("Popincomebars.csv")
 
-#Import next data set to be combined
-Gdp_MPA <- read.csv("GDP.csv")
-
-#Clean dataset
-Gdp_MPA$MSA <- str_remove(Gdp_MPA$MSA, ",.*")
-
 #Combine Datasets
 NBA_eval <- left_join(Popincomebars, Gdp_MPA, by = "MSA")
 
-#Export combined data for further cleaning 
+#Export combined data for further cleaning and analysis
 write.csv(x = NBA_eval, file = "NBA_eval.csv")
 ```
